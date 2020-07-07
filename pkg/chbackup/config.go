@@ -53,6 +53,7 @@ type S3Config struct {
 	CompressionFormat       string `yaml:"compression_format" envconfig:"S3_COMPRESSION_FORMAT"`
 	SSE                     string `yaml:"sse" envconfig:"S3_SSE"`
 	DisableCertVerification bool   `yaml:"disable_cert_verification" envconfig:"S3_DISABLE_CERT_VERIFICATION"`
+	MaxRetry                int    `yaml:"max_retry" envconfig:"S3_MAX_RETRY"`
 }
 
 // COSConfig - cos settings section
@@ -147,6 +148,7 @@ func DefaultConfig() *Config {
 			CompressionLevel:        1,
 			CompressionFormat:       "gzip",
 			DisableCertVerification: false,
+			MaxRetry:                30,
 		},
 		GCS: GCSConfig{
 			CompressionLevel:  1,

@@ -45,7 +45,7 @@ func (s *S3) Connect() error {
 		Endpoint:         aws.String(s.Config.Endpoint),
 		DisableSSL:       aws.Bool(s.Config.DisableSSL),
 		S3ForcePathStyle: aws.Bool(s.Config.ForcePathStyle),
-		MaxRetries:       aws.Int(30),
+		MaxRetries:       aws.Int(s.Config.MaxRetry),
 	}
 
 	if s.Config.DisableCertVerification {
